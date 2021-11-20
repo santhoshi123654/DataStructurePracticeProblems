@@ -42,7 +42,7 @@ public class LinkedList {
 
 	public void insertAt(int position, int data) {
 		if (position < 1) {
-			System.out.println("invalide position");
+			System.out.println("invalid position");
 		}
 		if (position == 1) {
 			push(data);
@@ -125,12 +125,33 @@ public class LinkedList {
 			System.out.println("Insertion is not possible because the search element not matched ");
 		}
 	}
-	public void toPrint() {
+public boolean delete(int element) {
+		
+		if(!toSearch(element)) {
+			System.out.println("search element not found");
+			return false;
+		}
+		Node temp = head;
+		Node prev = null;
+		if(temp != null && temp.key==element) {
+			head = temp.next;
+			return true;
+		}
+		while(temp !=null) {
+			if(temp.key == element) {
+				prev.next = temp.next;
+				return true;
+			}
+			prev = temp;
+			temp = temp.next;
+		}
+		return false;
+	}
 
+	public void toPrint() {
 		if (head == null) {
 			System.out.println("linkedList is empty");
-		} 
-		else {
+		} else {
 			Node temp = head;
 			System.out.println("LinkedList is : ");
 			
@@ -141,6 +162,4 @@ public class LinkedList {
 		}
 		System.out.println();
 	}
-
-
 }
