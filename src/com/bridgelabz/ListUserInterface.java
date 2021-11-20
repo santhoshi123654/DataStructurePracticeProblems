@@ -16,8 +16,9 @@ public int inputData() {
 		
 		System.out.println(" enter 1 : for appending \n enter 2 : to push the element \n enter 3 : to insert at position"
 				+ "\n enter 4 : to pop the element \n enter 5 : to pop at last \n enter 6 : for searching an element"
-				+ " \n enter 0 :for exit program : ");
-		
+
+			+ "\n enter 7 : to insert the value after  the searched value " + " \n enter 0 : to exit program ");
+
 		Scanner scanner = new Scanner(System.in);
 		int number = scanner.nextInt();
 		return number;
