@@ -13,10 +13,11 @@ private Node head;
 		}	
 	}
 
-	public boolean add(int element) {
+
+	public boolean add(int data) {
 		
 		boolean isAdded=false;
-		Node newNode = new Node(element);
+		Node newNode = new Node(data);
 		if(head==null) {
 			head=newNode;
 			isAdded = true;
@@ -36,6 +37,27 @@ private Node head;
 		Node newNode = new Node(data);
 		newNode.next = head;
 		head = newNode;
+	}
+	
+	public void insertAtPosition(int position, int data) {
+		if(position<1) {
+			System.out.println("invalide position");
+		}
+		if(position==1) {
+			push(data);
+		}else {
+			Node newNode =new Node(data);
+			Node temp = head;
+			int count=1;
+			while(count<position-1) {
+				temp=temp.next;
+				count++;
+			}
+			Node current = temp.next;
+			temp.next = newNode;
+			newNode.next=current;
+		}
+
 	}
 
 	public void toPrint() {
