@@ -57,13 +57,24 @@ private Node head;
 			temp.next = newNode;
 			newNode.next=current;
 		}
-
 	}
 
+	public int pop() {
+		
+		if(head==null) {
+		 System.out.println("delation is not possible it is empty list");
+		}
+		Node temp = head;
+		head = temp.next;
+		
+		return temp.key;
+	}
+	
 	public void toPrint() {
 		if(head==null) {
 			System.out.println("linkedList is empty");
-		}else {
+		}
+		else {
 			Node temp =head;
 			System.out.println("LinkedList is : ");
 			while(temp!=null) {

@@ -8,6 +8,9 @@ public class Main {
 		linkedlist.add(56);
 		linkedlist.add(70);
 		linkedlist.insertAtPosition(2,30);
+
+		System.out.println("Deleted key is : " + linkedlist.pop());
+
 		linkedlist.toPrint();
 		
 	}
