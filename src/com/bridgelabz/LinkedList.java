@@ -1,7 +1,8 @@
 package com.bridgelabz;
 
 public class LinkedList {
-	
+
+
 private Node head;
 	
 	class Node {
@@ -13,11 +14,11 @@ private Node head;
 		}	
 	}
 
-
 	public boolean add(int data) {
 		
 		boolean isAdded=false;
 		Node newNode = new Node(data);
+		
 		if(head==null) {
 			head=newNode;
 			isAdded = true;
@@ -25,6 +26,7 @@ private Node head;
 		else {
 			
 			Node temp = head;
+		
 			if(temp.next!=null) {
 				temp=temp.next;		
 			}
@@ -40,13 +42,16 @@ private Node head;
 		head = newNode;
 	}
 	
-	public void insertAtPosition(int position, int data) {
+	public void insertAt(int position, int data) {
+		
 		if(position<1) {
-			System.out.println("invalide position");
+			System.out.println("Position is Invalid");
 		}
+		
 		if(position==1) {
 			push(data);
-		}else {
+		}
+		else {
 			Node newNode =new Node(data);
 			Node temp = head;
 			int count=1;
@@ -63,7 +68,7 @@ private Node head;
 	public int pop() {
 		
 		if(head==null) {
-			System.out.println("delation is not possible becouse empty list");
+			System.out.println("deletion is not possible it is an  empty list");
 		}
 		Node temp = head;
 		head = temp.next;
@@ -73,7 +78,7 @@ private Node head;
 	
 	public int popLast() {
 		if(head==null) {
-			System.out.println("delation is not possible becouse empty list");
+			System.out.println("deletion is not possible it is  empty list");
 		}
 		
 		Node temp = head;
@@ -87,20 +92,37 @@ private Node head;
 		return popLastKey;
 	}
 	
+	public boolean toSearch(int data) {
+		
+		if(head==null) {
+			System.out.println("List is empty");
+			return false;
+		}		
+		Node temp = head;
+		boolean isFound = false;
+		while(temp != null) {
+			if(temp.key == data) {
+				isFound = true;
+				break;
+			}
+			temp = temp.next;
+		}
+		return isFound;
+	}
+	
 	public void toPrint() {
 		if(head==null) {
 			System.out.println("linkedList is empty");
-		}
-		else {
+		}else {
 			Node temp =head;
 			System.out.println("LinkedList is : ");
-			
 			while(temp!=null) {
 				System.out.print(temp.key + "-->");
 				temp=temp.next;
 			}
 		}
-		System.out.println();
-		
+		System.out.println();	
 	}
+
+
 }
