@@ -21,7 +21,8 @@ private Node head;
 		if(head==null) {
 			head=newNode;
 			isAdded = true;
-		}else {
+		}
+		else {
 			
 			Node temp = head;
 			if(temp.next!=null) {
@@ -62,12 +63,28 @@ private Node head;
 	public int pop() {
 		
 		if(head==null) {
-		 System.out.println("delation is not possible it is empty list");
+			System.out.println("delation is not possible becouse empty list");
 		}
 		Node temp = head;
 		head = temp.next;
 		
 		return temp.key;
+	}
+	
+	public int popLast() {
+		if(head==null) {
+			System.out.println("delation is not possible becouse empty list");
+		}
+		
+		Node temp = head;
+		
+		while(temp.next.next != null) {
+			temp=temp.next;
+		}
+		
+		int popLastKey=temp.next.key;
+		temp.next=null;
+		return popLastKey;
 	}
 	
 	public void toPrint() {
@@ -77,6 +94,7 @@ private Node head;
 		else {
 			Node temp =head;
 			System.out.println("LinkedList is : ");
+			
 			while(temp!=null) {
 				System.out.print(temp.key + "-->");
 				temp=temp.next;
